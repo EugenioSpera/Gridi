@@ -8,8 +8,14 @@
 
     grid-template-columns: repeat(2, 1fr 200px);    /* 1fr 200px 1fr 200px, a primeira coluna tera 1fr 200px e a segunda tera 1fr e 200px */
     
-    row-gap: 20px;  /* Espaçamento entre linhas  */
-    column-gap: 60px;   /* Espaçamento entre colunas */
+    gap: 8px;
+
+    /* grid-template-rows: repeat(1000, 200px); */
+
+    grid-auto-rows: 200px;  /* Toda linha gerada tera 200px,linhas automaticas */
+
+    /* row-gap: 20px; */  /* Espaçamento entre linhas  */
+    /* column-gap: 60px; */   /* Espaçamento entre colunas */
 
     /* grid-template-rows: 100px 100px 100px; */   /* Tamanho para as linhas */
 
@@ -22,6 +28,12 @@
 
 .item2 {
     background-color: aquamarine;
+
+    /* Vai mesclar entre a linhas 1 e 3 */
+    grid-row-start: 1;      /* Onde vai começar o ponto de mesclagem da linha */
+    grid-row-end: 3;    /* Onde vai termina o ponto de mesclagem da linha */
+
+    grid-row: 1 / 3;    /*Este comando ja entende que a mesclagem comçará na linha 1 no grid-row-start e terminará a mesclagem da linha 3 no grid-row-end */
 }
 
 .item3 {
@@ -43,3 +55,413 @@
 .item7 {
     background-color: brown;
 }
+
+.item8 {
+    background-color: rgba(228 , 142 ,142);
+    grid-column-start: 1;
+
+    grid-column-end: 5;
+}
+
+.item9 {
+    background-color: cadetblue;
+
+    grid-column-start: 1;
+
+    grid-column-end: 3;
+}
+
+.item10 {
+    background-color: cornflowerblue;
+    grid-column-start: 3;   /* Onde a mesclagem da coluna irá começar,neste caso na 3 coluna */
+
+    grid-column-end: 5;  /* Onde a mesclagem da coluna irá terminar,neste caso na coluna 5 */
+
+    /* grid-column: 3 / 5; */     /* Aqui ele ja entende que o primeiro no caso é 3 ele ja entende que e o grid-column-start e no segundo que é o 5 ele entende como grid-column-end,recomendável não usar */
+}
+
+.item10 ul li {
+    list-style: none;
+}
+
+.item11 {
+    background-color: cornflowerblue;
+    grid-column-start: 1;   /* Onde a mesclagem da coluna irá começar,neste caso na 3 coluna */
+    
+    grid-column-end: 5; /* Onde a mesclagem da coluna irá terminar,neste caso na coluna 5 */
+}
+
+.conteiner-area {
+    display: grid;
+    /* grid-template-columns: 1fr 2fr; */
+    grid-template-areas: 
+    "topo topo topo"    /* Mesclo 3 colunas */
+    "menu-nav menu-nav login"  /* Mesclo 3 colunas */  
+    "marketing principal principal" /* Mesclo 3 colunas */
+    "marketing principal principal" /* Mesclo 3 colunas */  
+    "marketing principal principal" /* Mesclo 3 colunas */
+    "rodape rodape rodape" /* Mesclo 3 colunas */;
+    grid-template-columns: 1fr 3fr 1fr;     /* Quantas colunas tem neste caso tem 5 colunas */
+    grid-template-rows: 200px 100px auto auto auto 200px;    
+}
+
+.border {
+    border: 1px solid black;
+}
+
+.top-area {
+    grid-area: topo;    /* criando uma area para reutilizar */
+}
+
+.nav-area {
+    grid-area: menu-nav;    /* criando uma area para reutilizar */
+}
+
+.login-area {
+    grid-area: login;   /* criando uma area para reutilizar */
+}
+
+.content-area {
+    grid-area: principal;   /* criando uma area para reutilizar */
+}
+
+.mkt-area {
+    grid-area: marketing;   /* criando uma area para reutilizar */
+}   
+
+.footer-area {
+    grid-area: rodape;  /* criando uma area para reutilizar */
+}
+
+/* .containers {
+    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "item-maior item-maior item2"
+    "item3 item4 item2";
+}
+
+.borders {
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.borders p {
+    font-size: 20px;
+}
+
+.item00 {
+    grid-area: item-maior;
+}
+
+.item22 {
+    grid-area: item2;
+}
+
+.item33 {
+    grid-area: item3;
+}
+
+.item44 {
+    grid-area: item4;
+} */
+
+/* .borders {
+    background-color: blue;
+    border-radius: 20px;
+} */
+
+/* .containers {
+    display: grid;
+    grid-template-columns: repeat(2fr 2fr 200px) ; */   /* repeat (1, 1fr 200px)= tera 2 colunas com 1 fr com 200 px, se for (2, 1fr 200px) terá 4 colunas com 1fr 200px */
+   /*  gap: 20px;
+
+} */
+
+/* .item00 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.item22 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.item33 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.item44 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+} */
+
+
+/* .borders {
+    background-color:black;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.containers {
+    display: grid;
+    grid-template-columns: repeat(2fr 2fr 200px);
+    gap: 20px;
+} */
+
+
+
+
+
+
+/* Coluna e cima e linha e do lado */
+
+
+
+
+
+
+/* .item00 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;  
+    grid-row-end: 2;
+}
+
+.item22 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.item33 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+.item44 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.item55 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.item66 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+.item77 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+.item88 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 7;
+}
+
+.item99 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+.item100 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 6;
+    grid-row-end: 7;
+} */
+
+
+/* .borders {
+    background-color: black;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.containers {
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr );
+    grid-template-areas: 
+    "item1 item1 item1"
+    "item2 item3 item3"
+    "item4 item3 item3"
+    "item5 item3 item3"
+    "item6 item7 item8"
+    "item9 item10 item8";
+}
+
+.item00 {
+    grid-area: item1;
+}
+
+.item22 {
+    grid-area: item2;
+}
+
+.item33 {
+    grid-area: item3;
+}
+
+.item44 {
+    grid-area: item4;
+}
+
+.item55 {
+    grid-area: item5;
+}
+
+.item66 {
+    grid-area: item6;
+}
+
+.item77 {
+    grid-area: item7;
+}
+
+.item88 {
+    grid-area: item8;
+}
+
+.item99 {
+    grid-area: item9;
+}
+
+.item100 {
+    grid-area: item10;
+} */
+
+.containers {
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 20px;
+}
+
+.borders {
+    background-color:blue;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.item00 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;  
+    grid-row-end: 2; 
+}
+
+.item22 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.item33 {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.item44 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.item55 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: red;
+}
+
+.item66 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.item77 {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    background-color: green;
+}
+
+.item88 {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.item99 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.item100 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.item111 {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
